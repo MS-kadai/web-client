@@ -1,7 +1,8 @@
 window.addEventListener('load', function() {
-    getTargetSession()
-    getAllSessionEvents()
-    getTargetRouteInfo()
+    getTargetSession();
+    getTargetRouteInfo();
+    this.setTimeout(getPointName, 70); //ゴミカス
+    this.setTimeout(getAllSessionEvents, 140); //ゴミカス
 })
 
 var target_session = null;
@@ -41,6 +42,8 @@ function getAllSessionEvents() {
             newPointIdCell.appendChild(addPointId);
             let addEventTimestamp = document.createTextNode(event_timestamp);
             newEventTimestampCell.appendChild(addEventTimestamp);
+            let addPointName = document.createTextNode(point_names[point_id-1]);
+            newPointNameCell.appendChild(addPointName);
 
         }
     });
@@ -78,7 +81,5 @@ function getTargetRouteInfo() {
 
         document.getElementById('route-name').innerHTML = target_route_name;
     });
-
-    getPointName();
 }
 

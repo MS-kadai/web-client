@@ -10,6 +10,7 @@ table {
     font-size:20px;
     border-spacing: 100px 200px;
     border-bottom: solid 5px #748ca5;
+    font-weight: 400;
    }
    
    td {
@@ -17,5 +18,32 @@ table {
     font-size:18px;
     border-spacing: 100px 200px;
     border-bottom: solid 2px #748ca5;
+    font-weight: 400;
    }
+
+#route-name {
+    font-weight: 200;
+    text-align: center;
+    padding: 40px;
+    text-shadow: #748ca5;
+}
+
+#page-title {
+    font-weight: 200;
+    text-align: center;
+    padding: 40px;
+    text-shadow: #748ca5;
+}
+
+#debug-info {
+    display:flex;
+    box-sizing:border-box;
+}
+
+#debug-info > p {
+    padding-left: 12px;
+    padding-right: 12px;
+    font-size: 10pt;
+    font-weight: 200;
+}
   

@@ -49,11 +49,8 @@ function updateRouteList() {
             let addRouteName = document.createTextNode(route_name);
             newNameCell.appendChild(addRouteName);
 
-            //aタグを作成し、その中にactive_sessionを格納
-
-
             let addActiveSession = document.createElement('a');
-
+            
             addActiveSession.innerHTML = active_session;
             addActiveSession.href = ("http://localhost:5500/route-overview.html?hoge=" + active_session);
             newActiveSessionCell.appendChild(addActiveSession)

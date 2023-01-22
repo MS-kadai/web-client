@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <head>
-    <title>スクールバス現在位置案内</title>
+    <title>web-client</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="/script/index.js"></script>
 </head>
 <body>
-    <p id="server-time"></p>
+    <div id="debug-info">
+        <p id="debug-info-p">最終更新時刻</p>
+        <p id="server-time"></p>
+    </div>
+    <h1 id="page-title">WEB-CLIENT</h1>
     <table id="table-routes" align="center">
         <tr>
             <th align="center">ルートID</th>
             <!-- <th class="table-head">第一便出発時間</th>
             <th class="table-head">第二便出発時間</th> -->
             <th align="center">ルート名</th>
-            <th align="center">ルート詳細</th>
+            <th align="center">アクティブなセッション</th>
         </tr>
     </table>
 </body>
