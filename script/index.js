@@ -31,12 +31,14 @@ function updateRouteList() {
 
             let tableRef = document.getElementById('table-routes');
             let newRow = tableRef.insertRow(-1);
-            let newNameCell = newRow.insertCell();
             let newIdCell = newRow.insertCell();
-            let addRouteName = document.createTextNode(route_name);
-            newNameCell.appendChild(addRouteName);
+            let newNameCell = newRow.insertCell();
             let addRouteId = document.createTextNode(route_id);
             newIdCell.appendChild(addRouteId);
+            let addRouteName = document.createTextNode(route_name);
+            newNameCell.appendChild(addRouteName);
+ //発車時刻は余裕あったら実装する
+ //TODO: アクティブなセッションがあるか確認する
         }
     })
 }
