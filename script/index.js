@@ -50,9 +50,13 @@ function updateRouteList() {
             newNameCell.appendChild(addRouteName);
 
             let addActiveSession = document.createElement('a');
-            
+
+            if (active_session == null) {
+                addActiveSession.innerHTML = "アクティブなセッションはありません";
+            } else {
             addActiveSession.innerHTML = active_session;
             addActiveSession.href = ("http://localhost:5500/route-overview.html?hoge=" + active_session);
+            }
             newActiveSessionCell.appendChild(addActiveSession)
  //発車時刻は余裕あったら実装する
  //TODO: アクティブなセッションがあるか確認する
