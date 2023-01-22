@@ -1,10 +1,13 @@
 window.addEventListener('load', function() {
     getTargetSession()
     getAllSessionEvents()
-    setRouteName()
+    getTargetRouteInfo()
 })
 
 var target_session = null;
+var target_route_name = null;
+var target_route_id = null;
+let point_names = [];
 
 function getTargetSession() {
     var params = new URLSearchParams(location.search);
@@ -30,6 +33,7 @@ function getAllSessionEvents() {
             let newRow = tableRef.insertRow(-1);
             let newEventIdCell = newRow.insertCell();
             let newPointIdCell = newRow.insertCell();
+            let newPointNameCell = newRow.insertCell();
             let newEventTimestampCell = newRow.insertCell();
             let addEventId = document.createTextNode(event_id);
             newEventIdCell.appendChild(addEventId);
@@ -42,7 +46,24 @@ function getAllSessionEvents() {
     });
 }
 
-function setRouteName() {
+function getPointName() {
+    const baseUrl = 'http://localhost:8000/route/'+target_route_id;
+
+    fetch(baseUrl)
+    .then(function (data) {
+        return data.json();
+    })
+    .then(function (json){
+        for (var i = 0; i < json.length; i++) {
+            var point_name = json.route[i].point_name;
+            point_names.push(point_name);
+
+            console.log(point_names)
+        }
+    });
+}
+
+function getTargetRouteInfo() {
     const baseUrl = 'http://localhost:8000/route/list';
 
     fetch(baseUrl)
@@ -50,12 +71,14 @@ function setRouteName() {
         return data.json();
     })
     .then(function (json){
-        console.log
 
-        var taget_route_name = json.routes.find((v) => v.active_session == target_session).route_name; //セッションIDから検索してルート名を取得
-        console.log(taget_route_name);
+        target_route_name = json.routes.find((v) => v.active_session == target_session).route_name; //セッションIDから検索してルート名を取得
+        target_route_id = json.routes.find((v) => v.active_session == target_session).id; //セッションIDから検索してルートIDを取得
+        console.log(target_route_name);
 
-        document.getElementById('route-name').innerHTML = taget_route_name;
+        document.getElementById('route-name').innerHTML = target_route_name;
     });
+
+    getPointName();
 }
 
