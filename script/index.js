@@ -3,6 +3,10 @@ window.addEventListener('load', function() {
     updateRouteList();
 })
 
+var route_ids = [];
+var route_names = [];
+var route_active_session = [];
+
 function getServerTime() {
     const baseUrl = 'http://localhost:8000/meta/time';
 
@@ -28,6 +32,12 @@ function updateRouteList() {
         for (var i = 0; i < json.length; i++) {
             var route_name = json.routes[i].route_name;
             var route_id = json.routes[i].id;
+            var active_session = json.routes[i].active_session;
+
+            //配列にいろいろを格納
+            route_ids.push(route_id);
+            route_names.push(route_name);
+            route_active_session.push(active_session);
 
             let tableRef = document.getElementById('table-routes');
             let newRow = tableRef.insertRow(-1);
