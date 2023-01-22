@@ -1,0 +1,21 @@
+table {
+    width:900px;
+    height:250px;
+    border-spacing: 400px 500px;
+    text-align: left;
+    border-collapse: collapse;
+   }
+   th {
+    padding: 35px;
+    font-size:20px;
+    border-spacing: 100px 200px;
+    border-bottom: solid 5px #748ca5;
+   }
+   
+   td {
+    padding: 30px;
+    font-size:24px;
+    border-spacing: 100px 200px;
+    border-bottom: solid 2px #748ca5;
+   }
+  

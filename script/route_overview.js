@@ -1,6 +1,7 @@
 window.addEventListener('load', function() {
     getTargetSession()
     getAllSessionEvents()
+    setRouteName()
 })
 
 var target_session = null;
@@ -36,10 +37,25 @@ function getAllSessionEvents() {
             newPointIdCell.appendChild(addPointId);
             let addEventTimestamp = document.createTextNode(event_timestamp);
             newEventTimestampCell.appendChild(addEventTimestamp);
-            
+
         }
-
-
-
     });
 }
+
+function setRouteName() {
+    const baseUrl = 'http://localhost:8000/route/list';
+
+    fetch(baseUrl)
+    .then(function (data) {
+        return data.json();
+    })
+    .then(function (json){
+        console.log
+
+        var taget_route_name = json.routes.find((v) => v.active_session == target_session).route_name; //セッションIDから検索してルート名を取得
+        console.log(taget_route_name);
+
+        document.getElementById('route-name').innerHTML = taget_route_name;
+    });
+}
+
